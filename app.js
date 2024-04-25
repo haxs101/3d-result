@@ -1,6 +1,7 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 const schedule = require('node-schedule');
+require('dotenv').config();
 const moment = require('moment-timezone');
 
 // Function to scrape data from the website
@@ -27,7 +28,7 @@ async function scrapeData() {
 // Function to send data to Slack webhook
 async function sendToSlack(data) {
   try {
-    const webhookUrl = 'https://hooks.slack.com/services/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';
+    const webhookUrl = process.env.SLACK_WEBHOOK_URL
     await axios.post(webhookUrl, {
       text: data
     });
