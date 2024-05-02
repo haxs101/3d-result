@@ -11,7 +11,7 @@ const app = express();
 
 
 // Define route for index.html
-app.get('/index.html', async (req, res) => {
+app.get('/', async (req, res) => {
   async function scrapeData() {
     try {
       const url = 'https://philnews.ph/pcso-lotto-result/swertres-result/';
